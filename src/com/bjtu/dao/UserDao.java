@@ -3,6 +3,7 @@ package com.bjtu.dao;
 import java.util.List;
 
 import com.bjtu.entity.NannyUser;
+import com.bjtu.entity.UserBaseInfo;
 
 public interface UserDao {
 	// 得到所有用户
@@ -14,6 +15,12 @@ public interface UserDao {
     //检测账号密码是否正确
     public boolean checkLogin(String username,String password);
     
-    //将注册
+    //注册
     public void register(String username,String password);
+    
+    //添加用户基本信息
+    public void addUserBaseInfo(UserBaseInfo userBaseInfo);
+    
+    //根据username获取ID
+    public int getIdByUsername(String username);
 }
