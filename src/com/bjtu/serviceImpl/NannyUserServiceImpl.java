@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.bjtu.dao.UserDao;
 import com.bjtu.daoImpl.UserDaoImpl;
 import com.bjtu.entity.NannyUser;
+import com.bjtu.entity.UserBaseInfo;
 import com.bjtu.service.NannyUserService;
 
 @Service
@@ -45,6 +46,16 @@ public class NannyUserServiceImpl implements NannyUserService{
 	@Override
 	public void register(String username, String password) {
 		userDao.register(username, password);
+	}
+
+	@Override
+	public void addBaseInof(UserBaseInfo userBaseInfo) {
+		userDao.addUserBaseInfo(userBaseInfo);
+	}
+
+	@Override
+	public int getIdByUsername(String username) {
+		return userDao.getIdByUsername(username);
 	}
 	
 }
