@@ -12,6 +12,7 @@ import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 import com.bjtu.dao.UserDao;
 import com.bjtu.entity.NannyUser;
+import com.bjtu.entity.UserBaseInfo;
 
 
 @Repository
@@ -28,9 +29,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 	  super.setSessionFactory(sessionFactory);
 	 }
 	 
-	 public UserDaoImpl(){
-		 System.out.println("UserDaoImpl");
-	 }
+	 public UserDaoImpl(){}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
@@ -73,6 +72,29 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 		session.save(user);
 		tx.commit();
 		session.close();
+	}
+
+	//添加用户基本信息
+	@Override
+	public void addUserBaseInfo(UserBaseInfo userBaseInfo) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.save(userBaseInfo);
+		tx.commit();
+		session.close();
+	}
+
+	//获取id
+	@Override
+	public int getIdByUsername(String username) {
+		int id = 0;
+		Query query = sessionFactory.openSession()
+                .createQuery("from NannyUser u where u.username = :username");
+		query.setParameter("username", username);
+		List<NannyUser> list = query.list();
+		if(list.size()>0)
+			id = list.get(0).getId();
+		return id;
 	}
 
 }
