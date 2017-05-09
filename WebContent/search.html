@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>演示：jQuery实现多条件筛选</title>
+<meta name="keywords" content="jquery,筛选" />
+<meta name="description" content="Helloweba文章结合实例演示HTML5、CSS3、jquery、PHP等WEB技术应用。" />
+
+<script type="text/javascript" src="js/jquery-3.1.1/jquery-3.1.1.min.js"></script>
+
+<script type="text/javascript" src="js/city.min.js"></script>
+<link href="css1/city.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css1/style2.css">
+
+<script type="text/javascript" src="js/script.js"></script>
+</head>
+
+<body>
+
+<div id="main">
+	
+	<div class="demo">	
+	<ul class="select">
+	<div class="wtf">
+	<li class="select-list">
+	<dl>
+		 <div id="content-left" class="chooseCity">
+                <form action="" name="form1">
+                        <div class="infolist">
+                            <lable>所在地区：</lable>
+                            <div class="liststyle">
+                                <span id="Province">
+                                    <i>请选择省份</i>
+                                    <ul>
+                                        <li><a id="province" href="javascript:void(0)" alt="请选择省份">请选择省份</a></li>
+                                    </ul>
+                                    <input type="hidden" name="cho_Province" value="请选择省份">
+                                </span>
+                                <span id="City">
+                                    <i>请选择城市</i>
+                                    <ul>
+                                        <li><a href="javascript:void(0)" alt="请选择城市">请选择城市</a></li>
+                                    </ul>
+                                   <input type="hidden" name="cho_City" value="请选择城市">
+                                </span>
+                                <span id="Area">
+                                   <i>请选择地区</i>
+                                    <ul>
+                                        <li><a href="javascript:void(0)" alt="请选择地区">请选择地区</a></li>
+                                    </ul>
+                                    <input type="hidden" name="cho_Area" value="请选择地区">
+                                </span>
+                            </div>
+                        </div>
+                    </form> 
+            </div>
+            </dl>
+	</li>
+	</div>
+	
+	<div class="another">	
+	<div class="select-up">
+		<li class="select-list">
+			<dl id="select1">
+				<dt>住家：</dt>
+				<dd class="select-all selected"><a href="#">不限</a></dd>
+				<dd><a href="#">是</a></dd>
+				<dd><a href="#">否</a></dd>
+			</dl>
+		</li>
+		<li class="select-list">
+			<dl id="select2">
+				<dt>学历：</dt>
+				<dd class="select-all selected"><a href="#">不限</a></dd>
+				<dd><a href="#">初中</a></dd>
+				<dd><a href="#">中专</a></dd>
+				<dd><a href="#">专科</a></dd>
+				<dd><a href="#">本科</a></dd>
+				<dd><a href="#">本科以上</a></dd>
+			</dl>
+		</li>
+		<li class="select-list">
+			<dl id="select3">
+				<dt>工龄：</dt>
+				<dd class="select-all selected"><a href="#">不限</a></dd>
+				<dd><a href="#">一年以内</a></dd>
+				<dd><a href="#">一到三年</a></dd>
+				<dd><a href="#">三到五年</a></dd>
+				<dd><a href="#">五年以上</a></dd>
+			</dl>
+		</li>
+		<li class="select-list">
+			<dl id="select4">
+				<dt>工资：</dt>
+				<dd class="select-all selected"><a href="#">不限</a></dd>
+				<dd><a href="#">1K-2K</a></dd>
+				<dd><a href="#">2K-3K</a></dd>
+				<dd><a href="#">3K-5K</a></dd>
+				<dd><a href="#">5K以上</a></dd>
+			</dl>
+		</li>
+		<li class="select-result">
+			<dl>
+				<dt>已选条件：</dt>
+				<dd class="select-no">暂时没有选择过滤条件</dd>
+			</dl>
+		</li>		
+		</div>
+		
+		<div class="select-down">
+		<li class="select-list">
+			<dl id="select-label">
+				<dt>技能：</dt>
+				<dd class="select-all selected"><a href="#">不限</a></dd>
+				<dd id="Label-1"><a id="a-1" href="#">月子餐</a></dd>
+				<dd id="Label-2"><a id="a-2" href="#">伤口护理</a></dd>
+				<dd id="Label-3"><a id="a-3" href="#">生活照料</a></dd>
+				<dd id="Label-4"><a id="a-4" href="#">乳房护理</a></dd>
+				<dd id="Label-5"><a id="a-5" href="#">技能培训</a></dd>
+				<dd id="Label-6"><a id="a-6" href="#">心里疏通</a></dd>
+				<dd id="Label-7"><a id="a-7" href="#">家庭关系协调</a></dd>
+				<dd id="Label-8"><a id="a-8" href="#">生活照料</a></dd>
+				<dd id="Label-9"><a id="a-9" href="#">育儿记录</a></dd>
+				<dd id="Label-10"><a id="a-10" href="#">早期促进</a></dd>
+				<dd id="Label-11"><a id="a-11" href="#">婴儿操</a></dd>
+			</dl>
+		</li>
+		<li class="select-label-result">
+			<dl>
+				<dt>已选条件：</dt>
+				<dd class="select-label-no">暂时没有选择过滤条件</dd>
+			</dl>
+		</li>
+		</div>
+		
+		</div>
+	</ul>
+	</div>
+
+</div>
+
+<button id="get">button</button>
+
+
+</body>
+</html>
