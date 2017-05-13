@@ -8,13 +8,14 @@ $(document).ready(function() {
 			succFunction(data);
 		},
 		error : function(result) {
-			alert("error");
+			alert("请求失败");
 		}
 	});
 		
 		
 	function succFunction(data) {
-		var json = eval(data);	
+		var json = eval(data);
+		alert(json[0].identity);
 		if (json[0].identity == "employer") {
 			document.getElementById('workPlace').value = json[1].work_address;
 			var isNeedLive = json.is_home;
