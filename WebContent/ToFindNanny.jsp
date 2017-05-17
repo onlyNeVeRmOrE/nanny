@@ -20,6 +20,7 @@
 <script type="text/javascript" src="js/LoginItem.js"></script>
 <script type="text/javascript" src="js/SignIn.js"></script>
 <script type="text/javascript" src="js/logout.js"></script>
+<script type="text/javascript" src="js/forappend.js"></script>
 
 <link href="css/city.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="css/style2.css">
@@ -68,7 +69,7 @@ jQuery(document).ready(function($) {
 	<nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">秋裤网</a>
+			<a class="navbar-brand" href="index.jsp">秋裤网</a>
 		</div>
 		<ul class="nav navbar-nav navbar-left">
 			<li><a href="#"><span class="glyphicon glyphicon-tags"></span>
@@ -77,7 +78,7 @@ jQuery(document).ready(function($) {
 					月嫂分布</a></li>
 			<li><a href="#"><span
 					class="glyphicon glyphicon-credit-card"></span> 秋裤快报</a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span>
+			<li><a href="ToFindNanny.jsp"><span class="glyphicon glyphicon-eye-open"></span>
 					如何找月嫂</a></li>
 			<li><a href="#"><span class="glyphicon glyphicon-heart"></span>
 					月嫂工资</a></li>
@@ -304,7 +305,7 @@ jQuery(document).ready(function($) {
 		          if(data.length<8)
 		        	  flog = 0;
 		          for(; i<length; i++) {
-		        	 html += '<li onclick="javascript:alert()">';
+		        	 html += '<li onclick="window.open(&apos;personal.jsp?uid='+data[i].user_id+'&apos;);">';
 			          // Image tag (preview in Wookmark are 200px wide, so we calculate the height based on that).
 			          html += '<img src="'+data[i].pic_url+'" width="200" height="280">';
 			          html += '<div class="post-info">';
@@ -375,7 +376,7 @@ jQuery(document).ready(function($) {
 					if(getCookie(i)!=undefined){
 					     var to_str = getCookie(i);
 						 var value = JSON.parse(to_str);
-						      html += '<li onclick="javascript:alert()">';
+						      html += '<li onclick="window.open(&apos;personal.jsp?uid='+data[i].user_id+'&apos;);">';
 					          // Image tag (preview in Wookmark are 200px wide, so we calculate the height based on that).
 					          html += '<img src="'+value.pic_url+'" width="200" height="280">';
 					          html += '<div class="post-info">';
@@ -389,9 +390,9 @@ jQuery(document).ready(function($) {
 							  html += '</div>';
 						      html += '<div class="post-info-rate-share">';
 						      html += '<div class="good-reputation">';
-							  html += '<h3>好评:<a>'+'good1'+'</a></h3>';
-							  html += '<h3>中评:<a>'+'good2'+'</a></h3>';
-							  html += '<h3>差评:<a>'+'good3'+'</a></h3>';
+						      html += '<h3>好评:<a>'+'1'+'</a></h3>';
+							  html += '<h3>中评:<a>'+'2'+'</a></h3>';
+							  html += '<h3>差评:<a>'+'3'+'</a></h3>';
 							  html += '</div>';
 						      html += '<div class="post-share">';
 						      html += '<span> </span>';
@@ -433,12 +434,10 @@ jQuery(document).ready(function($) {
 	          
 		      // Call the layout function for the first time
 		      if(getCookie("0")==undefined){
-		    	  alert(111);
 		    	  loadData();
 				 }
 				 else
 				 {
-				   alert(1);
 				   $tiles.children("li").remove();
 				   search();
 				 }
