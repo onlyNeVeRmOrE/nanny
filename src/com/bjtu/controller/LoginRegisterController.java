@@ -1,6 +1,10 @@
 package com.bjtu.controller;
 
 import java.io.IOException;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,10 +14,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.bjtu.entity.UserBaseInfo;
 import com.bjtu.service.NannyUserService;
 import com.bjtu.util.ResponseUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 
 /**
  * 登录注册控制器
@@ -27,32 +32,34 @@ public class LoginRegisterController {
 
 	/**
 	 * 验证账号密码
-	 * */
+	 */
 	@RequestMapping(value = "/login")
 	@ResponseBody
-	public String login(@RequestParam String username, @RequestParam String password,HttpServletRequest request) throws IOException {
+	public String login(@RequestParam String username, @RequestParam String password, HttpServletRequest request)
+			throws IOException {
 		ResponseUtil response = new ResponseUtil();
 		if (!isExist(username) || !checkLogin(username, password)) // 判断账户是否存在
 			response.setAuthResult("false");
-		else{
+		else {
 			response.setAuthResult("true");
-			request.getSession().setAttribute("sessionName",username);     //用Session保存用户名
-			request.getSession().setAttribute("sessionPwd",password);        //保存密码
+			request.getSession().setAttribute("sessionName", username); // 用Session保存用户名
+			request.getSession().setAttribute("sessionPwd", password); // 保存密码
 		}
 		ObjectMapper objectMapper = new ObjectMapper();
 		String jsonString = objectMapper.writeValueAsString(response);
 		return jsonString;
 	}
-	
+
 	/**
 	 * 验证邮箱是否存在
-	 * @throws IOException 
-	 * */
-	@RequestMapping(value="/exist")
+	 * 
+	 * @throws IOException
+	 */
+	@RequestMapping(value = "/exist")
 	@ResponseBody
-	public String emailIsExist(@RequestParam String email) throws  IOException{
+	public String emailIsExist(@RequestParam String email) throws IOException {
 		ResponseUtil response = new ResponseUtil();
-		if(isExist(email))
+		if (isExist(email))
 			response.setEmailIsExist("true");
 		else
 			response.setEmailIsExist("false");
@@ -60,22 +67,22 @@ public class LoginRegisterController {
 		String jsonString = objectMapper.writeValueAsString(response);
 		return jsonString;
 	}
-	
+
 	/**
 	 * 注册
-	 * */
+	 */
 	@RequestMapping(value = "/register")
 	@ResponseBody
-	public void register(@RequestParam String username,@RequestParam String password){
+	public void register(@RequestParam String username, @RequestParam String password) {
 		nannyUserService.register(username, password);
 	}
-	
+
 	/**
 	 * 注销
-	 * */
-	@RequestMapping(value="/logout")
+	 */
+	@RequestMapping(value = "/logout")
 	@ResponseBody
-	public String logout(HttpServletRequest request) throws IOException{
+	public String logout(HttpServletRequest request) throws IOException {
 		HttpSession session = request.getSession();
 		ResponseUtil response = new ResponseUtil();
 		session.invalidate();
@@ -83,6 +90,32 @@ public class LoginRegisterController {
 		ObjectMapper objectMapper = new ObjectMapper();
 		String jsonString = objectMapper.writeValueAsString(response);
 		return jsonString;
+	}
+
+	/**
+	 * 添加用户基本信息
+	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@RequestMapping(value = "/addBaseInfo")
+	@ResponseBody
+	public void addBaseInfo(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String email = (String)session.getAttribute("sessionName");
+		int id = nannyUserService.getIdByUsername(email);
+		String username = request.getParameter("username");
+		String id_card = request.getParameter("IDnumber");
+		String appellation = request.getParameter("appellation");		//称呼
+		String city = request.getParameter("city");
+		String residence = request.getParameter("residence");			//居住地
+		String phoneNumber = request.getParameter("phoneNumber");
+		UserBaseInfo userBaseInfo = new UserBaseInfo();
+		userBaseInfo.setUser_id(id);
+		userBaseInfo.setName(username);
+		userBaseInfo.setId_card(id_card);
+		userBaseInfo.setCity(city);
+		userBaseInfo.setAddress(residence);
+		userBaseInfo.setPhoneNumber(phoneNumber);
+		nannyUserService.addBaseInof(userBaseInfo);
 	}
 
 	// 判断用户账号是否存在
