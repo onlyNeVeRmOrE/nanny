@@ -1,6 +1,5 @@
-*{margin:0;padding:0;list-style-type:none;}
 
-.main {font:12px/180% Arial, Helvetica, sans-serif, "新宋体";margin:0;padding:0;list-style-type:none;}
+.search {margin:0;padding:0;list-style-type:none;font:12px/180% Arial, Helvetica, sans-serif, "新宋体";margin:0;padding:0;list-style-type:none;}
 /* select */
 .select{padding:5px 10px;border:#ddd 1px solid;border-radius:4px;width:60%;margin:5% auto;font-size:12px}
 .select .another li{list-style:none;padding:10px 0 5px 100px}
