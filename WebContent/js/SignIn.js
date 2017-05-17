@@ -27,7 +27,7 @@ $(document)
 																		reject) {
 																	setTimeout(
 																			function() { // 添加一个时间函数，在俩秒后执行，这里可以用作异步操作数据
-																							// 可添加ajax操作
+																				// 可添加ajax操作
 																				$
 																						.ajax({
 																							type : "POST",
@@ -71,7 +71,7 @@ $(document)
 																		resolve,
 																		reject) {
 																	if (password === '') { // 用来提示用户名已注册
-																							// 这里的意思是：如果输入的值等于'taken@example.com',数据已存在，提示信息
+																		// 这里的意思是：如果输入的值等于'taken@example.com',数据已存在，提示信息
 																		reject('输入不能为空') // 提示信息
 																	} else {
 																		pw = password;
@@ -111,7 +111,7 @@ $(document)
 																										username,
 																										pw);
 																							},
-																							error:function(){
+																							error : function() {
 																								alert("请求失败");
 																							}
 																						}),
@@ -138,7 +138,6 @@ $(document)
 				});
 
 function AfterSignIn(user_email, user_pw) {
-	alert(1);
 	$.ajax({
 		type : "POST",
 		url : "login.action?username=" + user_email + "&password=" + user_pw,// 目标url
@@ -151,7 +150,6 @@ function AfterSignIn(user_email, user_pw) {
 				DisplayAndHiddenBtn("userEmail", "d");
 				DisplayAndHiddenBtn("logout", "d");
 				$("#userEmail").text(user_email);
-
 			} else {
 
 				swal('登入失败!', '请重新登入!', 'error')

@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$.ajax({
-		url : "getIdentityInfo.action",
+		url : "getBaseInfo.action",
 		dataType : 'json',
 		type:"GET",
 		success : function(result) {
@@ -8,7 +8,7 @@ $(document).ready(function() {
 			succFunction(data);
 		},
 		error : function(result) {
-			alert("error");
+			alert("请求失败");
 		}
 	});
 		

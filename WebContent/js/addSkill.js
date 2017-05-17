@@ -1,60 +1,47 @@
 function yzc() {
-	var json = [];
 	var yzc = {};
-	yzc.yzcDescribe = $("#yzcDescribe").val();	
-	json.push(yzc);
-	alert(JSON.stringify(json));
-	
+	yzc.skillName="月子餐";
+	yzc.skillDescribe = $("#yzcDescribe").val();	
 	$.ajax({
-		type : "POST",
-		url : url + "",
+		type : "post",
+		url : "addSkillDescription.action",
 		contentType : "application/x-www-form-urlencoded",
 		dataType : "json",
-		data : JSON.stringify(GetJsonData()),
+		data : {
+			"labelInfo":JSON.stringify(yzc)
+		},
 		success : function(jsonResult) {
-			alert("成功");
+			document.getElementById("yzc").className="label label-success";
+			$("#yzcsubmit").hide();
+			$('input,select,textarea',
+					$('form[name="yzcform"]')).prop(
+					'disabled', true); 
+			CloseDiv('yzcDiv','fade');
 		},
 		error : function(jsonResult) {
-			alert("失败");
+			alert("错误");
 		}
-	})
-};
+	});
+}
+
 
 function skhl() {
-	var json = [];
 	var skhl = {};
-	skhl.skhlDescribe = $("#skhlDescribe").val();	
-	json.push(skhl);
-	alert(JSON.stringify(json));
+	skhl.skillName="伤口护理";
+	skhl.skillDescribe = $("#skhlDescribe").val();	
 	$.ajax({
 		type : "POST",
-		url : url + "",
+		url : "addSkillDescription.action",
 		contentType : "application/x-www-form-urlencoded",
 		dataType : "json",
-		data : JSON.stringify(GetJsonData()),
+		data : {"labelInfo":JSON.stringify(skhl)},
 		success : function(jsonResult) {
-			alert("成功");
-		},
-		error : function(jsonResult) {
-			alert("失败");
-		}
-	})
-};
-
-function skhl() {
-	var json = [];
-	var skhl = {};
-	skhl.skhlDescribe = $("#skhlDescribe").val();	
-	json.push(skhl);
-	alert(JSON.stringify(json));
-	$.ajax({
-		type : "POST",
-		url : url + "",
-		contentType : "application/x-www-form-urlencoded",
-		dataType : "json",
-		data : JSON.stringify(GetJsonData()),
-		success : function(jsonResult) {
-			alert("成功");
+			document.getElementById("skhl").className="label label-success";
+			$("#skhlsubmit").hide();
+			$('input,select,textarea',
+					$('form[name="skhlform"]')).prop(
+					'disabled', true); 
+			CloseDiv('skhlDiv','fade');
 		},
 		error : function(jsonResult) {
 			alert("失败");
@@ -63,19 +50,22 @@ function skhl() {
 };
 
 function shzl() {
-	var json = [];
 	var shzl = {};
-	shzl.shzlDescribe = $("#shzlDescribe").val();	
-	json.push(shzl);
-	alert(JSON.stringify(json));
+	shzl.skillName="生活照料";
+	shzl.skillDescribe = $("#shzlDescribe").val();	
 	$.ajax({
 		type : "POST",
-		url : url + "",
+		url : "addSkillDescription.action",
 		contentType : "application/x-www-form-urlencoded",
 		dataType : "json",
-		data : JSON.stringify(GetJsonData()),
+		data : {"labelInfo":JSON.stringify(shzl)},
 		success : function(jsonResult) {
-			alert("成功");
+			document.getElementById("shzl").className="label label-success";
+			$("#shzlsubmit").hide();
+			$('input,select,textarea',
+					$('form[name="shzlform"]')).prop(
+					'disabled', true); 
+			CloseDiv('shzlDiv','fade');
 		},
 		error : function(jsonResult) {
 			alert("失败");
@@ -84,19 +74,22 @@ function shzl() {
 };
 
 function rfhl() {
-	var json = [];
 	var rfhl = {};
-	rfhl.rfhlDescribe = $("#rfhlDescribe").val();	
-	json.push(rfhl);
-	alert(JSON.stringify(json));
+	rfhl.skillName="乳房护理";
+	rfhl.skillDescribe = $("#rfhlDescribe").val();	
 	$.ajax({
 		type : "POST",
-		url : url + "",
+		url : "addSkillDescription.action",
 		contentType : "application/x-www-form-urlencoded",
 		dataType : "json",
-		data : JSON.stringify(GetJsonData()),
+		data : {"labelInfo":JSON.stringify(rfhl)},
 		success : function(jsonResult) {
-			alert("成功");
+			document.getElementById("rfhl").className="label label-success";
+			$("#rfhlsubmit").hide();
+			$('input,select,textarea',
+					$('form[name="rfhlform"]')).prop(
+					'disabled', true); 
+			CloseDiv('rfhlDiv','fade');
 		},
 		error : function(jsonResult) {
 			alert("失败");
@@ -105,19 +98,22 @@ function rfhl() {
 };
 
 function jnpx() {
-	var json = [];
 	var jnpx = {};
-	jnpx.jnpxDescribe = $("#jnpxDescribe").val();	
-	json.push(jnpx);
-	alert(JSON.stringify(json));
+	jnpx.skillName="技能培训";
+	jnpx.skillDescribe = $("#jnpxDescribe").val();	
 	$.ajax({
 		type : "POST",
-		url : url + "",
+		url : "addSkillDescription.action",
 		contentType : "application/x-www-form-urlencoded",
 		dataType : "json",
-		data : JSON.stringify(GetJsonData()),
+		data : {"labelInfo":JSON.stringify(jnpx)},
 		success : function(jsonResult) {
-			alert("成功");
+			document.getElementById("jnpx").className="label label-success";
+			$("#jnpxsubmit").hide();
+			$('input,select,textarea',
+					$('form[name="jnpxform"]')).prop(
+					'disabled', true);
+			CloseDiv('jnpxDiv','fade');
 		},
 		error : function(jsonResult) {
 			alert("失败");
@@ -126,19 +122,22 @@ function jnpx() {
 };
 
 function jtgxxt() {
-	var json = [];
 	var jtgxxt = {};
-	jtgxxt.jtgxxtDescribe = $("#jtgxxtDescribe").val();	
-	json.push(jtgxxt);
-	alert(JSON.stringify(json));
+	jtgxxt.skillName="家庭关系协调";
+	jtgxxt.skillDescribe = $("#jtgxxtDescribe").val();	
 	$.ajax({
 		type : "POST",
-		url : url + "",
+		url : "addSkillDescription.action",
 		contentType : "application/x-www-form-urlencoded",
 		dataType : "json",
-		data : JSON.stringify(GetJsonData()),
+		data : {"labelInfo":JSON.stringify(jtgxxt)},
 		success : function(jsonResult) {
-			alert("成功");
+			document.getElementById("jtgxxt").className="label label-success";
+			$("#jtgxxtsubmit").hide();
+			$('input,select,textarea',
+					$('form[name="jtgxxtform"]')).prop(
+					'disabled', true);
+			CloseDiv('jtgxxtDiv','fade');
 		},
 		error : function(jsonResult) {
 			alert("失败");
@@ -147,19 +146,22 @@ function jtgxxt() {
 };
 
 function xlst() {
-	var json = [];
 	var xlst = {};
-	xlst.xlstDescribe = $("#xlstDescribe").val();	
-	json.push(xlst);
-	alert(JSON.stringify(json));
+	xlst.skillName="心理疏通";
+	xlst.skillDescribe = $("#xlstDescribe").val();	
 	$.ajax({
 		type : "POST",
-		url : url + "",
+		url : "addSkillDescription.action",
 		contentType : "application/x-www-form-urlencoded",
 		dataType : "json",
-		data : JSON.stringify(GetJsonData()),
+		data : {"labelInfo":JSON.stringify(xlst)},
 		success : function(jsonResult) {
-			alert("成功");
+			document.getElementById("xlst").className="label label-success";
+			$("#xlstsubmit").hide();
+			$('input,select,textarea',
+					$('form[name="xlstform"]')).prop(
+					'disabled', true); 
+			CloseDiv('xlstDiv','fade');
 		},
 		error : function(jsonResult) {
 			alert("失败");
@@ -168,19 +170,22 @@ function xlst() {
 };
 
 function jbgc() {
-	var json = [];
 	var jbgc = {};
-	jbgc.jbgcDescribe = $("#jbgcDescribe").val();	
-	json.push(jbgc);
-	alert(JSON.stringify(json));
+	jbgc.skillName="疾病观察";
+	jbgc.skillDescribe = $("#jbgcDescribe").val();	
 	$.ajax({
 		type : "POST",
-		url : url + "",
+		url : "addSkillDescription.action",
 		contentType : "application/x-www-form-urlencoded",
 		dataType : "json",
-		data : JSON.stringify(GetJsonData()),
+		data : {"labelInfo":JSON.stringify(jbgc)},
 		success : function(jsonResult) {
-			alert("成功");
+			document.getElementById("jbgc").className="label label-success";
+			$("#jbgcsubmit").hide();
+			$('input,select,textarea',
+					$('form[name="jbgcform"]')).prop(
+					'disabled', true); 
+			CloseDiv('jbgcDiv','fade');
 		},
 		error : function(jsonResult) {
 			alert("失败");
@@ -189,19 +194,22 @@ function jbgc() {
 };
 
 function shzl2() {
-	var json = [];
 	var shzl2 = {};
-	shzl2.shzl2Describe = $("#shzl2Describe").val();	
-	json.push(shzl2);
-	alert(JSON.stringify(json));
+	shzl2.skillName="生活照料2";
+	shzl2.skillDescribe = $("#shzl2Describe").val();	
 	$.ajax({
 		type : "POST",
-		url : url + "",
+		url : "addSkillDescription.action",
 		contentType : "application/x-www-form-urlencoded",
 		dataType : "json",
-		data : JSON.stringify(GetJsonData()),
+		data : {"labelInfo":JSON.stringify(shzl2)},
 		success : function(jsonResult) {
-			alert("成功");
+			document.getElementById("shzl2").className="label label-success";
+			$("#shzl2submit").hide();
+			$('input,select,textarea',
+					$('form[name="shzl2form"]')).prop(
+					'disabled', true); 
+			CloseDiv('shzl2Div','fade');
 		},
 		error : function(jsonResult) {
 			alert("失败");
@@ -210,19 +218,22 @@ function shzl2() {
 };
 
 function yejl() {
-	var json = [];
 	var yejl = {};
-	yejl.yejlDescribe = $("#yejlDescribe").val();	
-	json.push(yejl);
-	alert(JSON.stringify(json));
+	yejl.skillName="婴儿记录";
+	yejl.skillDescribe = $("#yejlDescribe").val();	
 	$.ajax({
 		type : "POST",
-		url : url + "",
+		url : "addSkillDescription.action",
 		contentType : "application/x-www-form-urlencoded",
 		dataType : "json",
-		data : JSON.stringify(GetJsonData()),
+		data : {"labelInfo":JSON.stringify(yejl)},
 		success : function(jsonResult) {
-			alert("成功");
+			document.getElementById("yejl").className="label label-success";
+			$("#yejlsubmit").hide();
+			$('input,select,textarea',
+					$('form[name="yejlform"]')).prop(
+					'disabled', true); 
+			CloseDiv('yejlDiv','fade');
 		},
 		error : function(jsonResult) {
 			alert("失败");
@@ -231,19 +242,22 @@ function yejl() {
 };
 
 function zqcj() {
-	var json = [];
 	var zqcj = {};
-	zqcj.zqcjDescribe = $("#zqcjDescribe").val();	
-	json.push(zqcj);
-	alert(JSON.stringify(json));
+	zqcj.skillName="早期促进";
+	zqcj.skillDescribe = $("#zqcjDescribe").val();	
 	$.ajax({
 		type : "POST",
-		url : url + "",
+		url : "addSkillDescription.action",
 		contentType : "application/x-www-form-urlencoded",
 		dataType : "json",
-		data : JSON.stringify(GetJsonData()),
+		data : {"labelInfo":JSON.stringify(zqcj)},
 		success : function(jsonResult) {
-			alert("成功");
+			document.getElementById("zqcj").className="label label-success";
+			$("#zqcjsubmit").hide();
+			$('input,select,textarea',
+					$('form[name="zqcjform"]')).prop(
+					'disabled', true);
+			CloseDiv('zqcjDiv','fade');
 		},
 		error : function(jsonResult) {
 			alert("失败");
@@ -252,19 +266,22 @@ function zqcj() {
 };
 
 function yec() {
-	var json = [];
 	var yec = {};
-	yec.yecDescribe = $("#yecDescribe").val();	
-	json.push(yec);
-	alert(JSON.stringify(json));
+	yec.skillName="婴儿操";
+	yec.skillDescribe = $("#yecDescribe").val();	
 	$.ajax({
 		type : "POST",
-		url : url + "",
+		url : "addSkillDescription.action",
 		contentType : "application/x-www-form-urlencoded",
 		dataType : "json",
-		data : JSON.stringify(GetJsonData()),
+		data : {"labelInfo":JSON.stringify(yec)},
 		success : function(jsonResult) {
-			alert("成功");
+			document.getElementById("yec").className="label label-success";
+			$("#yecsubmit").hide();
+			$('input,select,textarea',
+					$('form[name="yecform"]')).prop(
+					'disabled', true); 
+			CloseDiv('yecDiv','fade');
 		},
 		error : function(jsonResult) {
 			alert("失败");
