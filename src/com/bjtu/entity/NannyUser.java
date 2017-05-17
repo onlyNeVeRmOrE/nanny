@@ -22,13 +22,18 @@ public class NannyUser {
 	private String password;
 	
 	@Column
-	private int gender;
-	
-	@Column
-	private String name;
+	private String identity;
 	
 	public NannyUser(){
 		
+	}
+
+	public String getIdentity() {
+		return identity;
+	}
+
+	public void setIdentity(String identity) {
+		this.identity = identity;
 	}
 
 	public int getId() {
@@ -55,21 +60,4 @@ public class NannyUser {
 		this.password = password;
 	}
 
-	public int getGender() {
-		return gender;
-	}
-
-	public void setGender(int gender) {
-		this.gender = gender;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	
 }
