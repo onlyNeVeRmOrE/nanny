@@ -23,14 +23,27 @@ public class UserBaseInfo {
 	@Column
 	private String id_card;
 	
+	//所在城市
 	@Column
 	private String city;
 	
+	//居住地
 	@Column
 	private String address;
 	
 	@Column
 	private String pic_url;
+	
+	@Column 
+	private String phoneNumber;
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 
 	public int getUser_id() {
 		return user_id;
