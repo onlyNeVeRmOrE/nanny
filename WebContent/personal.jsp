@@ -103,7 +103,7 @@ jQuery(document).ready(function($) {
 	<nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="index.jsp">秋裤网</a>
+			<a class="navbar-brand" href="#">秋裤网</a>
 		</div>
 		<ul class="nav navbar-nav navbar-left">
 			<li><a href="#"><span class="glyphicon glyphicon-tags"></span>
@@ -112,7 +112,7 @@ jQuery(document).ready(function($) {
 					月嫂分布</a></li>
 			<li><a href="#"><span
 					class="glyphicon glyphicon-credit-card"></span> 秋裤快报</a></li>
-			<li><a href="ToFindNanny.jsp"><span class="glyphicon glyphicon-eye-open"></span>
+			<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span>
 					如何找月嫂</a></li>
 			<li><a href="#"><span class="glyphicon glyphicon-heart"></span>
 					月嫂工资</a></li>
