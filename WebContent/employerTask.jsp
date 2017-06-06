@@ -11,7 +11,9 @@
 	href="other/bootstrap-3.3.7/css/bootstrap.min.css">
 <script src="js/jquery.js"></script>
 <script src="js/ajaxUtils.js"></script>
+<script src="js/showdiv.js"></script>
 <script src="js/employerTask.js"></script>
+<link rel="stylesheet" href="css/addskill.css">
 <script src="other/jquery/jquery-3.1.1/jquery-3.1.1.min.js"></script>
 <link rel="stylesheet"
 	href="http://www.jq22.com/jquery/font-awesome.4.6.0.css" />
@@ -34,6 +36,7 @@
 <script src="other/jquery-ui/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="other/jquery-ui/jquery-ui.min.css">
 
+
 <link rel="icon" href="./assets/favicon.png">
 <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
 <link rel="stylesheet"
@@ -55,10 +58,9 @@
 
 <link rel="stylesheet" href="dist/css/logincss.css" media="all">
 <link rel="stylesheet" href="dist/css/bootstrap.min.css">
-<script type="text/javascript" src="js/employerTask.js"></script>
+
 <script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
 <script type="application/x-javascript">
-
 	
 	
 	
@@ -96,7 +98,7 @@ jQuery(document).ready(function($) {
 
 	})
 </script>
-<script src="js/starScore.js"></script>
+
 <style>
 body, li, p, ul {
 	margin: 0;
@@ -197,89 +199,21 @@ a:hover {
 	left: 0;
 }
 
-#starttwo0 .star_score {
+#starttwo .star_score {
 	background: url(img/starky.png);
 }
 
-#starttwo0 .star_score a:hover {
+#starttwo .star_score a:hover {
 	background: url(img/starsy.png);
 	left: 0;
 }
 
-#starttwo0 .star_score a.clibg {
+#starttwo .star_score a.clibg {
 	background: url(img/starsy.png);
 	left: 0;
 }
 
-#starttwo1 .star_score {
-	background: url(img/starky.png);
-}
 
-#starttwo1 .star_score a:hover {
-	background: url(img/starsy.png);
-	left: 0;
-}
-
-#starttwo1 .star_score a.clibg {
-	background: url(img/starsy.png);
-	left: 0;
-}
-
-#starttwo2 .star_score {
-	background: url(img/starky.png);
-}
-
-#starttwo2 .star_score a:hover {
-	background: url(img/starsy.png);
-	left: 0;
-}
-
-#starttwo2 .star_score a.clibg {
-	background: url(img/starsy.png);
-	left: 0;
-}
-
-#starttwo3 .star_score {
-	background: url(img/starky.png);
-}
-
-#starttwo3 .star_score a:hover {
-	background: url(img/starsy.png);
-	left: 0;
-}
-
-#starttwo3 .star_score a.clibg {
-	background: url(img/starsy.png);
-	left: 0;
-}
-
-#starttwo4 .star_score {
-	background: url(img/starky.png);
-}
-
-#starttwo4 .star_score a:hover {
-	background: url(img/starsy.png);
-	left: 0;
-}
-
-#starttwo4 .star_score a.clibg {
-	background: url(img/starsy.png);
-	left: 0;
-}
-
-#starttwo5 .star_score {
-	background: url(img/starky.png);
-}
-
-#starttwo5 .star_score a:hover {
-	background: url(img/starsy.png);
-	left: 0;
-}
-
-#starttwo5 .star_score a.clibg {
-	background: url(img/starsy.png);
-	left: 0;
-}
 
 /*星星样式*/
 .show_number {
@@ -370,7 +304,7 @@ a:hover {
 							type="password" name="pwd" placeholder="密　码" size="20"
 							id="input_password" /></li>
 						<li><button class="button7 button7-primary" type="button"
-								name="submit" value="登 录 " id="loginIn" /></li>
+							name="submit" id="loginIn">登入</button></li>
 					</ol>
 				</form>
 			</div>
@@ -436,7 +370,7 @@ a:hover {
 
 	<div id="pending" class="container">
 		<div class="page-header">
-			<h1><b>任务空间<b></h1>
+			<h2><b>任务空间<b></h2>
 		</div>
 
 		<fieldset>
@@ -459,294 +393,15 @@ a:hover {
 			</div>
 		</fieldset>
 
-
 		<fieldset>
 			<legend>
 				<h2><b>今日任务<b></h2>
 			</legend>
 			<div id="todaymain" role="main">
 				<ul id="todaytiles">
-
-
 					<!-- End of grid blocks -->
 				</ul>
-			</div>
-			<input type="button" class="btn  btn-default " value="第二栏"
-				onclick="qaq()"> <input type="button"
-				class="btn  btn-default " value="第一栏" onclick="qaqw()">
-			<script>
-			function qaqw() {
-				var data=[
-				    [
-				        {
-				            "skill": "技能培训",
-				            "theLastTime": "2017-05-02",
-				            "address": "北京",
-				            "highSalary": "12000",
-				            "startTime": "2017-05-09",
-				            "endTime": "2017-05-08",
-				            "id": 1,
-				            "lowSalary": "9000",
-				            "nanny_id": 7,
-				            "employer_id": 8
-				        },
-				        {
-				            "residence": "北京市海淀区北京交通大学",
-				            "phone": "11111",
-				            "city": "北京",
-				            "user_id": 8,
-				            "id_card": "430623199511051634",
-				            "name": "祁家祯",
-				            "mail": "hxl@qk.com",
-				            "pic_url": "./imgResources/8.jpg"
-				        },
-				        {
-				            "baby_weight": 3,
-				            "education": "专科",
-				            "is_home": "是",
-				            "mother_age": 25,
-				            "can_pay": 9500,
-				            "experience_need": "2年以上",
-				            "baby_birth": "2012/1/1",
-				            "user_id": 8,
-				            "work_address": "北京市海淀区",
-				            "mother_height": 166,
-				            "vacation": 2,
-				            "mother_weight": 50,
-				            "childbirth_count": 1,
-				            "childbirth_method": "顺产"
-				        }
-				    ],
-				    [],
-				    [
-				    	{
-				    		"skillName": "伤口护理"
-				    	},
-				    	{
-				    		"skillName": "婴儿操"
-				    	},
-				    	{
-				    		"skillName": "月子餐"
-				    	}
-				    ]
-				];
-				var json = eval(data);	
-				var name = json[0][1].name;
-				var phone = json[0][1].phone;
-				var mail = json[0][1].mail;
-				var residence = json[0][1].residence;
-				var startTime = json[0][0].startTime;
-				var endTime = json[0][0].endTime;
-				document.getElementById("name").innerHTML = "姓名：" + name;
-				document.getElementById("phone").innerHTML = "手机号:" + phone;
-				document.getElementById("mail").innerHTML = "邮箱号:" + mail;
-				document.getElementById("residence").innerHTML = "居住地:" + residence;
-				document.getElementById("workTime").innerHTML = "工作时间:" + startTime + "至" + endTime;
-				var $tiles = $('#nannytiles'), $handler = $('li', $tiles), $main = $('#nannymain'), $window = $(window), $document = $(document), options = {
-					autoResize : true, 
-					container : $main, 
-					offset : 20,
-					itemWidth : 280
-				};
-				var html = '';
-				for (var i = 0, l = json[2].length; i < l; i++) {
-					if (json[2][i].skillName == "月子餐") {
-						html += '<span class="label label-primary">月子餐</span>';
-						html += '&nbsp;&nbsp;';
-					}
-					if (json[2][i].skillName == "伤口护理") {
-						html += '<span class="label label-primary">伤口护理</span>';
-						html += '&nbsp;&nbsp;';
-					}
-					if (json[2][i].skillName == "生活照料") {
-						html += '<span class="label label-primary">生活照料</span>';
-						html += '&nbsp;&nbsp;';
-					}
-					if (json[2][i].skillName == "乳房护理") {
-						html += '<span class="label label-primary">乳房护理</span>';
-						html += '&nbsp;&nbsp;';
-					}
-					if (json[2][i].skillName == "技能培训") {
-						html += '<span class="label label-primary">技能培训</span>';
-						html += '&nbsp;&nbsp;';
-					}
-					if (json[2][i].skillName == "家庭关系协调") {
-						html += '<span class="label label-primary">家庭关系协调</span>';
-						html += '&nbsp;&nbsp;';
-					}
-					if (json[2][i].skillName == "心理疏通") {
-						html += '<span class="label label-primary">心理疏通</span>';
-						html += '&nbsp;&nbsp;';
-					}
-					if (json[2][i].skillName == "疾病观察") {
-						html += '<span class="label label-primary">疾病观察</span>';
-						html += '&nbsp;&nbsp;';
-					}
-					if (json[2][i].skillName == "生活照料2") {
-						html += '<span class="label label-primary">生活照料2</span>';
-						html += '&nbsp;&nbsp;';
-					}
-					if (json[2][i].skillName == "育儿记录") {
-						html += '<span class="label label-primary">育儿记录</span>';
-						html += '&nbsp;&nbsp;';
-					}
-					if (json[2][i].skillName == "早期促进") {
-						html += '<span class="label label-primary">早期促进</span>';
-						html += '&nbsp;&nbsp;';
-					}
-					if (json[2][i].skillName == "婴儿操") {
-						html += '<span class="label label-primary">婴儿操</span>';
-						html += '&nbsp;&nbsp;';
-					}
-				}
-				$tiles.append(html);
-			}
-			</script>
-
-			<script>
-			function qaq() {
-				var $tiles = $('#todaytiles'), $handler = $('li', $tiles), $main = $('#todaymain'), $window = $(window), $document = $(document), options = {
-					autoResize : true, 
-					container : $main,
-					offset : 20, 
-					itemWidth : 280
-				};
-				var html = '';
-				var data=[
-				    [
-				        {
-				            "time": "17:00-17:30",
-				            "work": "婴儿操",
-				            "star": "4"
-				        },
-				        {
-				            "time": "09:00-09:30",
-				            "work": "月子餐",
-				            "star": "3"
-				        },
-				        {
-				            "time": "17:00-17:30",
-				            "work": "伤口护理",
-				            "star": "4"
-				        },
-				        {
-				            "time": "12:00-12:30",
-				            "work": "做午餐",
-				            "star": "3.3"
-				        }
-				    ]
-				];
-				var json = eval(data);
-				
-				for (var  n= 0; n < 4; n++) {
-					html += '<div id="startwo'+n+'" class="col-sm-12">';
-					html += '<div class="col-sm-2" style="float: left; display: inline;">';
-					html += '<h3>'+json[0][n].time+'</h3>';
-					html += '</div>';
-					html += "<div style='float: left; display: inline;'>";
-					html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-					html += '</div>';
-					html += '<div class="col-sm-2" style="float: left; display: inline;">';
-					html += '<h3>'+json[0][n].work+'</h3>';
-					html += '</div>';
-					html += "<div style='float: left; display: inline;'>";
-					html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-					html += '</div>';
-					html += '<br>';
-					html += '<div class="col-sm-3" style="float: left; display: inline;">';
-					html += '<div id="starttwo'+n+'" class="block clearfix">';		
-					html += '<div class="star_score"></div>';
-					html += '<p style="float:left;">您的评分：<span class="fenshu"></span> 分</p>';
-					html += '<div class="attitude"></div>';
-					html += '</div>';
-					html += '</div>';
-					html += "<div style='float: left; display: inline;'>";
-					html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-					html += '</div>';
-					html += '<div class="col-sm-2" style="float: left; display: inline;">';
-					html += '<input type="submit" class="btn btn-primary" value="确认完成" onclick="check'+n+'();">';
-					html += '</div>';
-					html += '<hr size="10" width=100%>';
-					html += '</div>';					
-				}
-				$tiles.append(html);
-				
-							
-				scoreFun($("#starttwo0"), {
-					fen_d : 22,
-					ScoreGrade : 5
-				});
-				scoreFun($("#starttwo1"), {
-					fen_d : 22,
-					ScoreGrade : 5
-				});
-				scoreFun($("#starttwo2"), {
-					fen_d : 22,
-					ScoreGrade : 5
-				});
-				scoreFun($("#starttwo3"), {
-					fen_d : 22,
-					ScoreGrade : 5
-				});
-				scoreFun($("#starttwo4"), {
-					fen_d : 22,
-					ScoreGrade : 5
-				});
-				scoreFun($("#starttwo5"), {
-					fen_d : 22,
-					ScoreGrade : 5
-				});
-				$(".show_number li p").each(
-						function(index, element) {
-							var num = $(this).attr("tip");
-							var www = num * 2 * 16;
-							$(this).css("width", www);
-							$(this).parent(".atar_Show").siblings("span")
-									.text(num + "分");
-						});
-				}
-			</script>
-			
-			<script>
-			function check0() {
-				alert(1);
-				var num = $(this).attr("tip");
-				if(num==1){ 
-					alert(233444);
-				}
-				
-			}
-			function check1() {
-				var msg = "您真的确定要完成吗？请确认！";
-				if (confirm(msg) == true) {
-					$("#startwo1").remove(); 
-				}
-			}
-			function check2() {
-				var msg = "您真的确定要完成吗？请确认！";
-				if (confirm(msg) == true) {
-					$("#startwo2").remove(); 
-				} 
-			}
-			function check3() {
-				var msg = "您真的确定要完成吗？请确认！";
-				if (confirm(msg) == true) {
-					$("#startwo3").remove(); 
-				}
-			}
-			function check4() {
-				var msg = "您真的确定要完成吗？请确认！";
-				if (confirm(msg) == true) {
-					$("#startwo4").remove(); 
-				} 
-			}
-			function check5() {
-				var msg = "您真的确定要完成吗？请确认！";
-				if (confirm(msg) == true) {
-					$("#startwo5").remove(); 
-				}
-			}
-			</script>
+			</div>	
 		</fieldset>
 
 
@@ -756,226 +411,137 @@ a:hover {
 				<div class="col-sm-2 col-sm-offset-8"
 					style='float: left; display: inline;'>
 					<input type="button" class="btn  btn-primary btn-block"
-						value="添加任务" onclick="qaq()">
+						value="添加任务"  onclick="javascript:window.open('addtask.jsp');">
 				</div>
 				<br> <br>
 			</legend>
 
 			<div id="accordion">
-				<h1>1月1日</h1>
-
+				<h1>第1日</h1>
 				<div style='height: 300px; min-height: 300px;'>
-
 					<div id="taskmain1" role="main">
 						<ul id="tasktiles1">
-
 
 							<!-- End of grid blocks -->
 						</ul>
 					</div>
 				</div>
 
-				<h1>1月2日</h1>
+				<h1>第2日</h1>
 				<div style='height: 300px; min-height: 300px;'>
 					<div id="taskmain2" role="main">
 						<ul id="tasktiles2">
 
-
 							<!-- End of grid blocks -->
 						</ul>
 					</div>
 				</div>
 
-				<h1>1月3日</h1>
+				<h1>第3日</h1>
 				<div style='height: 300px; min-height: 300px;'>
 					<div id="taskmain3" role="main">
 						<ul id="tasktiles3">
-
 
 							<!-- End of grid blocks -->
 						</ul>
 					</div>
 				</div>
 			</div>
-			<br> <br> <br> <br> <br> <br> <br>
-			<br>
+			<br> <br> <br> <br> <br> <br> <br> <br>
 		</fieldset>
-
 		<div class="col-sm-2 col-sm-offset-10">
-			<input type="button" class="btn  btn-warning btn-block" value="结束雇佣"
-				onclick="sss()">
+			<input type="button" class="btn  btn-warning btn-block" value="结束雇佣" onclick="ShowDiv('endEmploymentDiv','fade')">
 		</div>
 	</div>
 
-	<script>
-	function sss() {
-		
-		var $tiles = $('#tasktiles1'), $handler = $('li', $tiles), $main = $('#taskmain1'), $window = $(window), $document = $(document), options = {
-			autoResize : true,
-			container : $main,
-			offset : 20,
-			itemWidth : 280
-		};
-		var html = '';
-		
-		var data=[
-		    [
-		        {
-		            "time": "17:00-17:30",
-		            "work": "婴儿操",
-		            "star": "1"
-		        },
-		        {
-		            "time": "09:00-09:30",
-		            "work": "月子餐",
-		            "star": "3"
-		        },
-		        {
-		            "time": "17:00-17:30",
-		            "work": "做午餐",
-		            "star": "5"
-		        },
-		        {
-		            "time": "09:00-09:30",
-		            "work": "月子餐22",
-		            "star": "2"
-		        }
-		    ],
-		    [
-		        {
-		            "time": "17:00-17:30",
-		            "work": "晚饭",
-		            "star": "4"
-		        },
-		        {
-		            "time": "09:00-09:30",
-		            "work": "婴儿操",
-		            "star": "2"
-		        },
-		        {
-		            "time": "17:00-17:30",
-		            "work": "散步",
-		            "star": "3"
-		        },
-		        {
-		            "time": "09:00-09:30",
-		            "work": "技能培训",
-		            "star": "5"
-		        }
-		    ]
-		];
-		var json = eval(data);
-		var sum = 0;
-		for (var i = 0, l = json[0].length; i < l; i++) {
-			html += '<div class="col-sm-12">';
-			html += '<div class="col-sm-3" style="float: left; display: inline;">';
-			html += '<h3>'+json[0][i].time+'</h3>';
-			html += '</div>';
-			html += "<div style='float: left; display: inline;'>";
-			html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-			html += '</div>';
-			html += '<div class="col-sm-3" style="float: left; display: inline;">';
-			html += '<h3>'+json[0][i].work+'</h3>';
-			html += '</div>';
-			html += "<div style='float: left; display: inline;'>";
-			html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-			html += '</div>';
-			html += '<div class="col-sm-4" style="float: left; display: inline;">';
-			html += '<ul class="show_number clearfix">';
-			html += '<li><div class="atar_Show"><p tip='+json[0][i].star+'></p>';
-			html += '</div><span></span></li></ul>';
-			html += '</div>';
-			html += "<div style='float: left; display: inline;'>";
-			html += '<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>';
-			html += '</div>';						
-			html += '<hr size="10" width=100%>';
-			html += '</div>';		
-			sum += parseInt(json[0][i].star);
-			var avg=sum/l;			
-		}	
-		html += '<div class="col-sm-5 col-sm-offset-1" style="float: left; display: inline;">';
-		html += '<h1><b>本日的综合评分为：</b></h1>';
-		html += '</div>';
-		html += '<div class="col-sm-4" style="float: left; display: inline;">';
-		html += '<ul class="show_number clearfix">';
-		html += '<li><div class="atar_Show"><p tip='+avg+'></p>';
-		html += '</div><span></span></li></ul>';
-		html += '</div>';
-		$tiles.append(html);
-		
-				
-		var $tiles = $('#tasktiles2'), $handler = $('li', $tiles), $main = $('#taskmain2'), $window = $(window), $document = $(document), options = {
-			autoResize : true,
-			container : $main,
-			offset : 20,
-			itemWidth : 280
-		};
-		var html = '';			
-		var json = eval(data);
-		var sum = 0;
-		for (var i = 0, l = json[1].length; i < l; i++) {
-			html += '<div class="col-sm-12">';
-			html += '<div class="col-sm-3" style="float: left; display: inline;">';
-			html += '<h3>'+json[1][i].time+'</h3>';
-			html += '</div>';
-			html += "<div style='float: left; display: inline;'>";
-			html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-			html += '</div>';
-			html += '<div class="col-sm-3" style="float: left; display: inline;">';
-			html += '<h3>'+json[1][i].work+'</h3>';
-			html += '</div>';
-			html += "<div style='float: left; display: inline;'>";
-			html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-			html += '</div>';
-			html += '<div class="col-sm-4" style="float: left; display: inline;">';
-			html += '<ul class="show_number clearfix">';
-			html += '<li><div class="atar_Show"><p tip='+json[1][i].star+'></p>';
-			html += '</div><span></span></li></ul>';
-			html += '</div>';
-			html += "<div style='float: left; display: inline;'>";
-			html += '<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>';
-			html += '</div>';						
-			html += '<hr size="10" width=100%>';
-			html += '</div>';		
-			sum += parseInt(json[1][i].star);
-			var avg=sum/l;			
-		}	
-		html += '<div class="col-sm-5 col-sm-offset-1" style="float: left; display: inline;">';
-		html += '<h1><b>本日的综合评分为：</b></h1>';
-		html += '</div>';
-		html += '<div class="col-sm-4" style="float: left; display: inline;">';
-		html += '<ul class="show_number clearfix">';
-		html += '<li><div class="atar_Show"><p tip='+avg+'></p>';
-		html += '</div><span></span></li></ul>';
-		html += '</div>';
-		$tiles.append(html);
-		
-		
-		
-		scoreFun($("#startone"))
-		scoreFun($("#starttwo0"),{
-           fen_d:22,//每一个a的宽度
-           ScoreGrade:5//a的个数5
-        });
-	    scoreFun($("#starttwo1"),{
-           fen_d:22,//每一个a的宽度
-           ScoreGrade:5//a的个数5
-        });
-	    //显示分数
-	    $(".show_number li p").each(function(index, element) {
-	        var num=$(this).attr("tip");
-	        var www=num*2*16;//
-	        $(this).css("width",www);
-	        $(this).parent(".atar_Show").siblings("span").text(num+"分");
-	    });
-	}
-	</script>
+	<div id="endEmploymentDiv" class="white_content">
+		<div style="text-align: right; cursor: default; height: 20px;">
+			<span style="font-size: 16px;"
+				onclick="CloseDiv('endEmploymentDiv','fade')">关闭</span>
+		</div>
+
+		<form id="endform" name="endform" role="form" class="form-horizontal"
+			target="end_iframe" enctype="multipart/form-data">
+			<div class="page-header">
+				<h1>结束雇佣</h1>
+			</div>
+			<div>
+				<div class="form-group">
+					<label class="col-sm-offset-1 control-label">
+						<p style='font-size: 19px; font-weight: bold;'>评价等级：</p>
+					</label> <label class="col-sm-offset-1"> <input type="radio"
+						name="grade" id="hao" value="好评">好评
+					</label> <label class="col-sm-offset-1"> <input type="radio"
+						name="grade" id="zhong" value="中评">中评
+					</label> <label class="col-sm-offset-1"> <input type="radio"
+						name="grade" id="cha" value="差评">差评						
+					</label> 
+					<br> <label class="col-sm-offset-1 control-label">
+						<p style='font-size: 19px; font-weight: bold;'>评价内容:</p>
+					</label>
+					<textarea class="col-sm-offset-1 form-control textarea-item" id="content"
+						name="content" style='width: 400px; height: 130px;' placeholder="请填写评价内容，100字以内"></textarea>
+						<div class="col-sm-offset-1 textarea-count1">
+								<span class="textareaInput">0</span>/<span class="textareaTotal">100</span>
+							</div>
+					<br>
+					<br>
+				</div>
+
+				<input type="submit" id="evaluateSubmit"
+					class="btn btn-default col-sm-offset-9" value="提 交">
+			</div>
+		</form>
+	</div>
+	
 
 	<script>
-	$(function() {
-	    $( "#accordion" ).accordion();
-	  });
+		$(function() {
+			$("#accordion").accordion();
+		});
 	</script>
+	
+	<script type="text/javascript">
+    $(document).ready(function() {
+    	var lenInput = $('.textarea-item').val().length;
+        $(".textarea-item").keyup(function(){
+             lenInput = $(this).val().length;
+             if(lenInput>=0 && lenInput<=100){
+                 $('.textareaInput').html(lenInput);
+                 
+             }
+        });
+        $('#endform').formValidation({
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+            	content: {
+                    validators: {
+                        notEmpty: {
+                            message: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请填写评价内容，不能为空'
+                        },
+                        stringLength : {
+							min : 1,
+							max : 100,
+							message : '超过输入长度'
+						}
+                    }
+                },
+                'grade' : {
+					validators : {
+						notEmpty : {
+							message : '请选择一个评价等级，不能空'
+						}
+					}
+				}
+            }
+        })
+        $('#endform').data('formValidation').disableSubmitButtons(true);     
+    });
+    </script>
 
 </body>
 </html>

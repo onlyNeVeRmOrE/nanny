@@ -145,7 +145,7 @@ jQuery(document).ready(function($) {
 							type="password" name="pwd" placeholder="密　码" size="20"
 							id="input_password" /></li>
 						<li><button class="button7 button7-primary" type="button"
-								name="submit" value="登 录 " id="loginIn" /></li>
+							name="submit" id="loginIn">登入</button></li>
 					</ol>
 				</form>
 			</div>
@@ -164,11 +164,11 @@ jQuery(document).ready(function($) {
 			href="basic.jsp"> <span class="mm-menu__link-text"><i
 					class="md md-home"></i> 基本信息</span>
 		</a></li>
-		<li class="mm-menu__item"><a class="mm-menu__link" href="#">
+		<li class="mm-menu__item"><a class="mm-menu__link" href="toDo.jsp">
 				<span class="mm-menu__link-text"><i class="md md-person"></i>
 					选填信息</span>
 		</a></li>
-		<li class="mm-menu__item"><a class="mm-menu__link" href="#">
+		<li class="mm-menu__item"><a class="mm-menu__link" href="doing.jsp">
 				<span class="mm-menu__link-text"><i class="md md-inbox"></i>
 					修改密码</span>
 		</a></li>

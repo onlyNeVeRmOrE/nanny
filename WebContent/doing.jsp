@@ -101,8 +101,7 @@ jQuery(document).ready(function($) {
 		$('.theme-popover').slideUp(200);
 	})
 	
-	var currentEmail = "<%=session.getAttribute("sessionName")%>
-	";
+	var currentEmail = "<%=session.getAttribute("sessionName")%>";
 		if (currentEmail != "null") {
 			DisplayAndHiddenBtn("signIn", "h");
 			DisplayAndHiddenBtn("login", "h");
@@ -169,7 +168,7 @@ jQuery(document).ready(function($) {
 							type="password" name="pwd" placeholder="密　码" size="20"
 							id="input_password" /></li>
 						<li><button class="button7 button7-primary" type="button"
-								name="submit" value="登 录 " id="loginIn" /></li>
+							name="submit" id="loginIn">登入</button></li>
 					</ol>
 				</form>
 			</div>
@@ -240,166 +239,9 @@ jQuery(document).ready(function($) {
 
 		<div id="main" role="main">
 			<ul id="tiles">
-
-
 				<!-- End of grid blocks -->
 			</ul>
 		</div>
-
-		<input type="button" id="conf" class="btn btn-default" value="新增预约"
-			onclick="qqqzz()"> <input type="button" id="conf"
-			class="btn btn-default" value="添加信息" onclick="qqqa()">
-
-		<script type="text/javascript">
-			function qqqzz() {
-				alert("aa");
-				var $tiles = $('#tiles'),
-		          $handler = $('li', $tiles),
-		          $main = $('#main'),
-		          $window = $(window),
-		          $document = $(document),
-		          options = {
-		            autoResize: true, // This will auto-update the layout when the browser window is resized.
-		            container: $main, // Optional, used for some extra CSS styling
-		            offset: 20, // Optional, the distance between grid items
-		            itemWidth:280 // Optional, the width of a grid item
-		          };
-				var data=[
-				    [
-				        {
-				        	"identity" : "nanny",
-				            "theLastTime": "2017-05-02",
-				            "address": "北京",
-				            "highSalary": "12000",
-				            "startTime": "2017-05-09",
-				            "endTime": "2017-05-08",
-				            "id": 1,
-				            "lowSalary": "9000",
-				            "nanny_id": 7,
-				            "employer_id": 8
-				        },
-				        {
-				            "residence": "北京市海淀区北京交通大学",
-				            "phone": "11111",
-				            "city": "北京",
-				            "user_id": 8,
-				            "id_card": "430623199511051634",
-				            "name": "祁家祯",
-				            "pic_url": "./imgResources/8.jpg"
-				        },
-				        {
-				            "baby_weight": 3,
-				            "education": "专科",
-				            "is_home": "是",
-				            "mother_age": 25,
-				            "can_pay": 9500,
-				            "experience_need": "2年以上",
-				            "baby_birth": "2012/1/1",
-				            "user_id": 8,
-				            "work_address": "北京市海淀区",
-				            "mother_height": 166,
-				            "vacation": 2,
-				            "mother_weight": 50,
-				            "childbirth_count": 1,
-				            "childbirth_method": "顺产"
-				        }
-				    ]
-				];
-				var json = eval(data);
-				var html = '';
-				if (json[0][0].identity == "nanny") {
-					html += '<div class="panel-body">';
-					html += '<div>';
-					html += '<img src="img/u90.png" class="img-rounded col-sm-2">';
-					html += '</div>';
-					html += '<div class="col-sm-6">';
-					html += '<b><h2 id="workTime">工作时间:</h2></b>';
-					html += '<b><h2 id="salary">可支付工资:</h2></b>';
-					html += '<b><h2 id="workPlace">工作地点:</h2></b>';
-					html += '</div>';
-					html += '<div class="col-sm-4">';
-					html += '<br>';
-					html += '<div>';
-					html += '<input type="button" id="contactEmployer" class="btn btn-default" value="联系雇主">';
-					html += '</div>';
-					html += '<br>';
-					html += '<div>';
-					html += '<input type="button" id="confirm" class="btn btn-default" value="进入任务空间" onclick="enternanny()"';
-					html += '</div>';
-					html += '</div>';
-					html += '</div>';
-					html += '</div>';
-					html += '</div>';
-					html += '<hr>';
-					$tiles.append(html);
-				}
-				if (json[0][0].identity == "employer") {
-					html += '<div class="panel-body">';
-					html += '<div>';
-					html += '<img src="img/u90.png" class="img-rounded col-sm-2">';
-					html += '</div>';
-					html += '<div class="col-sm-6">';
-					html += '<b><h2 id="workTime">工作时间:</h2></b>';
-					html += '<b><h2 id="salary">可支付工资:</h2></b>';
-					html += '<b><h2 id="workPlace">工作地点:</h2></b>';
-					html += '</div>';
-					html += '<div class="col-sm-4">';
-					html += '<br>';
-					html += '<div>';
-					html += '<input type="button" id="contactEmployer" class="btn btn-default" value="联系月嫂">';
-					html += '</div>';
-					html += '<br>';
-					html += '<div>';
-					html += '<input type="button" id="confirm" class="btn btn-default" value="进入任务空间" onclick="enteremployer()"';
-					html += '</div>';
-					html += '</div>';
-					html += '</div>';
-					html += '</div>';
-					html += '</div>';
-					html += '<hr>';
-					$tiles.append(html);
-				}
-				var workStartTime = json[0][0].startTime;
-				var workendTime = json[0][0].endTime;
-				var lowSalary = json[0][0].lowSalary;
-				var highSalary = json[0][0].highSalary;
-				var workPlace = json[0][0].address;
-				document.getElementById("workTime").innerHTML = "工作时间:" + workStartTime + "至" + workendTime;
-				document.getElementById("salary").innerHTML = "可支付工资:" + lowSalary + "元至" + highSalary + "元";
-				document.getElementById("workPlace").innerHTML = "工作地点:" + workPlace;
-			};
-			function enternanny () {
-					window.location='nannyTask.jsp';
-			}
-			function enteremployer () {
-				window.location='employerTask.jsp';
-			}
-			function show(obj, id) {
-				var objDiv = $("#" + id + "");
-				$(objDiv).css("display", "block");
-				$(objDiv).css("left", event.clientX);
-				$(objDiv).css("top", event.clientY + 10);
-			}
-			function hide(obj, id) {
-				var objDiv = $("#" + id + "");
-				$(objDiv).css("display", "none");
-			};
-			function confirmOrder() {
-				var msg = "您真的确定要预约吗？请确认！";  
-	            if (confirm(msg)==true){  			                
-	                $("#aaa").remove(); 
-	            }   
-			};
-		</script>
-
-	</div>
-
-	<div id="employerDiv"
-		style="position: absolute; display: none; border: 1px solid silver; background: silver;">
-		<b><h2 id="name">姓名：</h2></b> <b><h2 id="phone">手机号:</h2></b> <b><h2
-				id="mail">邮箱号:</h2></b> <b><h2 id="place">居住地点:</h2></b> <b><h2
-				id="birthday">婴儿出生日期:</h2></b>
-	</div>
-
+	</div>	
 </body>
 </html>

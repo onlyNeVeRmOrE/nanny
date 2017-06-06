@@ -298,7 +298,7 @@ a:hover {
 							type="password" name="pwd" placeholder="密　码" size="20"
 							id="input_password" /></li>
 						<li><button class="button7 button7-primary" type="button"
-								name="submit" value="登 录 " id="loginIn" /></li>
+							name="submit" id="loginIn">登入</button></li>
 					</ol>
 				</form>
 			</div>
@@ -370,7 +370,6 @@ a:hover {
 		<fieldset>
 			<legend>
 				<h2><b>雇主信息<b></h2>
-				<input type="button" class="btn  btn-warning btn-block" value="结束雇佣" onclick="qqq()">
 			</legend>
 			<h3 id="name" class="col-sm-3" style='float: left; display: inline;'>雇主姓名：</h3>
 			<h3 id="phone" class="col-sm-4" style='float: left; display: inline;'>手机号：</h3>
@@ -383,373 +382,12 @@ a:hover {
 				style='float: left; display: inline;'>工作时间：</h3>
 		</fieldset>
 		
-		<script>
-		function qqq() {
-			var data=[
-			    [
-			        {
-			            "comment": 0,
-			            "id": 4,
-			            "time": "2016/06/04-2016/06/08",
-			            "nanny_id": 7,
-			            "employer_id": 102,
-			            "taskDetails": "喂奶"
-			        },
-			        {
-			            "comment": 0,
-			            "id": 5,
-			            "time": "2016/06/04-2016/06/08",
-			            "nanny_id": 7,
-			            "employer_id": 102,
-			            "taskDetails": "婴儿操"
-			        },
-			        {
-			            "comment": 0,
-			            "id": 6,
-			            "time": "2016/06/04-2016/06/08",
-			            "nanny_id": 7,
-			            "employer_id": 102,
-			            "taskDetails": "做饭"
-			        }
-			    ],
-			    [
-			        {
-			            "work_address": "北京市朝阳区",
-			            "is_home": "是",
-			            "experience_need": "5年以上",
-			            "education": "本科",
-			            "can_pay": "9000",
-			            "vacation": "2",
-			            "year": "2012",
-			            "month": "1",
-			            "day": "1",
-			            "baby_weight": "3.0",
-			            "mother_age": "30",
-			            "mother_weight": "40.0",
-			            "mother_height": "166",
-			            "childbirth_count": "1",
-			            "childbirth_method": "顺产"
-			        }
-			    ]
-			];
-			var json = eval(data);	
-			var name = json[1][0].name;
-			var phone = json[1][0].phone;
-			var mail = json[1][0].mail;
-			var year = json[1][0].year;
-			var month = json[1][0].month;
-			var day = json[1][0].day;
-			var workPlace = json[1][0].work_address;
-			var startTime = json[1][0].startTime;
-			var endTime = json[1][0].endTime;
-			document.getElementById("name").innerHTML = "雇主姓名：" + name;
-			document.getElementById("phone").innerHTML = "手机号:" + phone;
-			document.getElementById("mail").innerHTML = "邮箱号:" + mail;
-			document.getElementById("babyBirthday").innerHTML = "婴儿出生日期:" + year + "/" + month +"/" + day;
-			document.getElementById("workPlace").innerHTML = "工作地点:" + workPlace;
-			document.getElementById("workTime").innerHTML = "工作时间:" + startTime + "至" + endTime;
-			
-			var $tiles = $('#todaytiles'), $handler = $('li', $tiles), $main = $('#todaymain'), $window = $(window), $document = $(document), options = {
-				autoResize : true,
-				container : $main, 
-				offset : 20,
-				itemWidth : 280
-			};
-			var html = '';
-			/*var data=[
-			    [
-			        {
-			            "time": "17:00-17:30",
-			            "work": "婴儿操",
-			            "star": "4"
-			        },
-			        {
-			            "time": "09:00-09:30",
-			            "work": "月子餐",
-			            "star": "3"
-			        },
-			        {
-			            "time": "17:00-17:30",
-			            "work": "技能培训",
-			            "star": "4"
-			        },
-			        {
-			            "time": "19:00-19:30",
-			            "work": "伤口护理",
-			            "star": "3.3"
-			        }
-			    ]
-			];*/
-			var json = eval(data);
-			
-			for (var  n= 0, m = json[0].length; n < m; n++) {
-				html += '<div id="startwo'+n+'" class="col-sm-12">';
-				html += '<div class="col-sm-4" style="float: left; display: inline;">';
-				html += '<h3>'+json[0][n].time+'</h3>';
-				html += '</div>';
-				html += "<div style='float: left; display: inline;'>";
-				html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-				html += '</div>';
-				html += '<div class="col-sm-3" style="float: left; display: inline;">';
-				html += '<h3>'+json[0][n].taskDetails+'</h3>';
-				html += '</div>';
-				html += "<div style='float: left; display: inline;'>";
-				html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-				html += '</div>';
-				html += '<br>';
-				html += "<div style='float: left; display: inline;'>";
-				html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-				html += '</div>';
-				html += '<div class="col-sm-3" style="float: left; display: inline;">';
-				html += '<input type="submit" id="check" class="btn  btn-primary " value="完成" onclick="check'+n+'();">';
-				html += '</div>';
-				html += '<hr size="10" width=100%>';
-				html += '</div>';					
-			}
-			$tiles.append(html);
-			
-			
-			
-			var $tiles = $('#tomorrowtiles'), $handler = $('li', $tiles), $main = $('#tomorrowmain'), $window = $(window), $document = $(document), options = {
-				autoResize : true, 
-				container : $main, 
-				offset : 20,
-				itemWidth : 280
-			};
-			var html = '';
-			/*var data=[
-			    [
-			        {
-			            "time": "17:00-17:30",
-			            "work": "婴儿操",
-			            "star": "4"
-			        },
-			        {
-			            "time": "09:00-09:30",
-			            "work": "月子餐",
-			            "star": "3"
-			        },
-			        {
-			            "time": "17:00-17:30",
-			            "work": "技能培训",
-			            "star": "4"
-			        },
-			        {
-			            "time": "19:00-19:30",
-			            "work": "伤口护理",
-			            "star": "3.3"
-			        }
-			    ]
-			];*/
-			var json = eval(data);
-			
-			for (var  n= 0, m = json[0].length; n < m; n++) {
-				html += '<div id="startwo'+n+'" class="col-sm-12">';
-				html += '<div class="col-sm-4" style="float: left; display: inline;">';
-				html += '<h3>'+json[0][n].time+'</h3>';
-				html += '</div>';
-				html += "<div style='float: left; display: inline;'>";
-				html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-				html += '</div>';
-				html += '<div class="col-sm-3" style="float: left; display: inline;">';
-				html += '<h3>'+json[0][n].taskDetails+'</h3>';
-				html += '</div>';
-				html += "<div style='float: left; display: inline;'>";
-				html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-				html += '</div>';
-				html += '<br>';
-				html += '<hr size="10" width=100%>';
-				html += '</div>';
-			}
-			$tiles.append(html);
-			
-			
-			var $tiles = $('#evaluate1tiles'), $handler = $('li', $tiles), $main = $('#evaluate1main'), $window = $(window), $document = $(document), options = {
-				autoResize : true,
-				container : $main, 
-				offset : 20,
-				itemWidth : 280
-			};
-			var html = '';
-			/*
-			var data=[
-			    [
-			        {
-			            "time": "17:00-17:30",
-			            "work": "婴儿操",
-			            "star": "4"
-			        },
-			        {
-			            "time": "09:00-09:30",
-			            "work": "月子餐",
-			            "star": "3"
-			        },
-			        {
-			            "time": "17:00-17:30",
-			            "work": "婴儿操11",
-			            "star": "4"
-			        },
-			        {
-			            "time": "09:00-09:30",
-			            "work": "月子餐22",
-			            "star": "3.3"
-			        }
-			    ]
-			];*/
-			var json = eval(data);
-			var sum = 0;
-			for (var i = 0, l = json[0].length; i < l; i++) {
-				html += '<div class="col-sm-12">';
-				html += '<div class="col-sm-4" style="float: left; display: inline;">';
-				html += '<h3>'+json[0][i].time+'</h3>';
-				html += '</div>';
-				html += "<div style='float: left; display: inline;'>";
-				html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-				html += '</div>';
-				html += '<div class="col-sm-3" style="float: left; display: inline;">';
-				html += '<h3>'+json[0][i].taskDetails+'</h3>';
-				html += '</div>';
-				html += "<div style='float: left; display: inline;'>";
-				html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-				html += '</div>';
-				html += '<div class="col-sm-3" style="float: left; display: inline;">';
-				html += '<ul class="show_number clearfix">';
-				html += '<li><div class="atar_Show"><p tip='+json[0][i].star+'></p>';
-				html += '</div><span></span></li></ul>';
-				html += '</div>';
-				html += "<div style='float: left; display: inline;'>";
-				html += '<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>';
-				html += '</div>';			
-				html += '<hr size="10" width=100%>';
-				html += '</div>';
-				sum += parseInt(json[0][i].star);
-				var avg=sum/l;	
-			}
-			html += '<div class="col-sm-5 col-sm-offset-1" style="float: left; display: inline;">';
-			html += '<h1><b>本日的综合评分为：</b></h1>';
-			html += '</div>';
-			html += '<div class="col-sm-4" style="float: left; display: inline;">';
-			html += '<ul class="show_number clearfix">';
-			html += '<li><div class="atar_Show"><p tip='+avg+'></p>';
-			html += '</div><span></span></li></ul>';
-			html += '</div>';
-			$tiles.append(html);
-			
-			
-			var $tiles = $('#evaluate2tiles'), $handler = $('li', $tiles), $main = $('#evaluate2main'), $window = $(window), $document = $(document), options = {
-				autoResize : true,
-				container : $main, 
-				offset : 20,
-				itemWidth : 280
-			};
-			var html = '';
-			var json = eval(data);
-			var sum = 0;
-			for (var i = 0, l = json[0].length; i < l; i++) {
-				html += '<div class="col-sm-12">';
-				html += '<div class="col-sm-4" style="float: left; display: inline;">';
-				html += '<h3>'+json[0][i].time+'</h3>';
-				html += '</div>';
-				html += "<div style='float: left; display: inline;'>";
-				html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-				html += '</div>';
-				html += '<div class="col-sm-3" style="float: left; display: inline;">';
-				html += '<h3>'+json[0][i].taskDetails+'</h3>';
-				html += '</div>';
-				html += "<div style='float: left; display: inline;'>";
-				html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-				html += '</div>';
-				html += '<div class="col-sm-3" style="float: left; display: inline;">';
-				html += '<ul class="show_number clearfix">';
-				html += '<li><div class="atar_Show"><p tip='+json[0][i].star+'></p>';
-				html += '</div><span></span></li></ul>';
-				html += '</div>';
-				html += "<div style='float: left; display: inline;'>";
-				html += '<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>';
-				html += '</div>';			
-				html += '<hr size="10" width=100%>';
-				html += '</div>';
-				sum += parseInt(json[0][i].star);
-				var avg=sum/l;	
-			}
-			html += '<div class="col-sm-5 col-sm-offset-1" style="float: left; display: inline;">';
-			html += '<h1><b>本日的综合评分为：</b></h1>';
-			html += '</div>';
-			html += '<div class="col-sm-4" style="float: left; display: inline;">';
-			html += '<ul class="show_number clearfix">';
-			html += '<li><div class="atar_Show"><p tip='+avg+'></p>';
-			html += '</div><span></span></li></ul>';
-			html += '</div>';
-			$tiles.append(html);
-			
-			var $tiles = $('#evaluate3tiles'), $handler = $('li', $tiles), $main = $('#evaluate3main'), $window = $(window), $document = $(document), options = {
-				autoResize : true,
-				container : $main, 
-				offset : 20,
-				itemWidth : 280
-			};
-			var html = '';
-			var json = eval(data);
-			var sum = 0;
-			for (var i = 0, l = json[0].length; i < l; i++) {
-				html += '<div class="col-sm-12">';
-				html += '<div class="col-sm-4" style="float: left; display: inline;">';
-				html += '<h3>'+json[0][i].time+'</h3>';
-				html += '</div>';
-				html += "<div style='float: left; display: inline;'>";
-				html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-				html += '</div>';
-				html += '<div class="col-sm-3" style="float: left; display: inline;">';
-				html += '<h3>'+json[0][i].taskDetails+'</h3>';
-				html += '</div>';
-				html += "<div style='float: left; display: inline;'>";
-				html += '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>';
-				html += '</div>';
-				html += '<div class="col-sm-3" style="float: left; display: inline;">';
-				html += '<ul class="show_number clearfix">';
-				html += '<li><div class="atar_Show"><p tip='+json[0][i].star+'></p>';
-				html += '</div><span></span></li></ul>';
-				html += '</div>';
-				html += "<div style='float: left; display: inline;'>";
-				html += '<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>';
-				html += '</div>';			
-				html += '<hr size="10" width=100%>';
-				html += '</div>';
-				sum += parseInt(json[0][i].star);
-				var avg=sum/l;	
-			}
-			html += '<div class="col-sm-5 col-sm-offset-1" style="float: left; display: inline;">';
-			html += '<h1><b>本日的综合评分为：</b></h1>';
-			html += '</div>';
-			html += '<div class="col-sm-4" style="float: left; display: inline;">';
-			html += '<ul class="show_number clearfix">';
-			html += '<li><div class="atar_Show"><p tip='+avg+'></p>';
-			html += '</div><span></span></li></ul>';
-			html += '</div>';
-			$tiles.append(html);
-		    
-			
-			scoreFun($("#startone"))
-		    scoreFun($("#starttwo"),{
-	           fen_d:22,
-	           ScoreGrade:5
-	        });
-		    $(".show_number li p").each(function(index, element) {
-		        var num=$(this).attr("tip");
-		        var www=num*2*16;//
-		        $(this).css("width",www);
-		        $(this).parent(".atar_Show").siblings("span").text(num+"分");
-		    });
-		}
-		</script>
-
 		<fieldset>
 			<legend>
 				<h2><b>今日任务<b></h2>
 			</legend>
 			<div id="todaymain" role="main">
 				<ul id="todaytiles">
-
 					<!-- End of grid blocks -->
 				</ul>
 			</div>
@@ -761,7 +399,6 @@ a:hover {
 			</legend>
 			<div id="tomorrowmain" role="main">
 				<ul id="tomorrowtiles">
-
 					<!-- End of grid blocks -->
 				</ul>
 			</div>
@@ -773,31 +410,28 @@ a:hover {
 			</legend>
 
 			<div id="accordion">
-				<h2>1月1日</h2>
+				<h2>第1日</h2>
 				<div style='height: 310px; min-height: 310px;'>
 					<div id="evaluate1main" role="main">
 						<ul id="evaluate1tiles">
-
 							<!-- End of grid blocks -->
 						</ul>
 					</div>
 				</div>
 
-				<h2>1月2日</h2>
+				<h2>第2日</h2>
 				<div style='height: 310px; min-height: 310px;'>
 					<div id="evaluate2main" role="main">
 						<ul id="evaluate2tiles">
-
 							<!-- End of grid blocks -->
 						</ul>
 					</div>
 				</div>
 				
-				<h2>1月3日</h2>
+				<h2>第3日</h2>
 				<div style='height: 310px; min-height: 310px;'>
 					<div id="evaluate3main" role="main">
 						<ul id="evaluate3tiles">
-
 							<!-- End of grid blocks -->
 						</ul>
 					</div>
@@ -806,7 +440,6 @@ a:hover {
 			<br><br><br><br><br><br>
 		</fieldset>
 	</div>
-
 
 	<script>
 	$(function() {

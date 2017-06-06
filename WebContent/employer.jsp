@@ -16,10 +16,10 @@
 <script src="js/nanny.js"></script>
 <script src="js/employer.js"></script>
 <script src="js/showdiv.js"></script>
-<script src="js/needSkill.js"></script>
-<script src="other/jquery/jquery-3.1.1/jquery-3.1.1.min.js"></script>
+<script src="js/addSkill.js"></script>
 <script src="other/DJMask/js/jquery-DJMask.2.1.1.js"></script>
 <script src="other/DJMask/js/jquery.js"></script>
+<script src="other/jquery/jquery-3.1.1/jquery-3.1.1.min.js"></script>
 <link rel="stylesheet"
 	href="other/font-awesome.css" />
 <link rel="stylesheet"
@@ -37,6 +37,7 @@
 <link rel="stylesheet" href="other/jquery-nav/css/style.min.css">
 <link rel="stylesheet" href="other/jquery-nav/css/style.css">
 <script src="other/jquery-nav/js/production/materialMenu.min.js"></script>
+<script src="other/autosize-master/autosize.js"></script>
 
 <link rel="icon" href="./assets/favicon.png">
 <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
@@ -145,7 +146,7 @@ jQuery(document).ready(function($) {
 							type="password" name="pwd" placeholder="密　码" size="20"
 							id="input_password" /></li>
 						<li><button class="button7 button7-primary" type="button"
-								name="submit" value="登 录 " id="loginIn" /></li>
+							name="submit" id="loginIn">登入</button></li>
 					</ol>
 				</form>
 			</div>
@@ -256,7 +257,7 @@ jQuery(document).ready(function($) {
 								<p style='font-size: 19px; font-weight: bold;'>技能标签：</p>
 							</label>
 							<div>
-								<span id="yzc" class="label label-default">月子餐</span> 
+								<span id="yzc" class="label label-default" onclick="ShowDiv('yzcDiv','fade')">月子餐</span> 
 								<span id="skhl" class="label label-default" onclick="ShowDiv('skhlDiv','fade')">伤口护理</span>
 								<span id="shzl" class="label label-default"
 									onclick="ShowDiv('shzlDiv','fade')">生活照料</span> <span id="rfhl"
