@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:mvc="http://www.springframework.org/schema/mvc"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+    http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd  
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd">  
+   
+   <!-- 配置注解扫描包，这里为com.bjtu.controller，将扫描该包下所有带有@Controller的类，这些类将
+   		被视为Controller -->
+    <context:component-scan base-package="com.bjtu.controller" />  
+   
+   <!-- 开启注解扫描驱动 -->
+    <mvc:annotation-driven />  
+    
+    <!-- 配置视图渲染关系，这里所有请求处理后将渲染为/WEB-INF/views下的jsp文件，到底是哪个jsp文件呢
+    	这就看请求处理动作到时候具体返回的是哪个文件了 -->
+    <bean  
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+        <property name="prefix">  
+            <value>/WEB-INF/views/</value>  
+        </property>  
+        <property name="suffix">  
+            <value>.jsp</value>  
+        </property>  
+    </bean>  
+   
+   
+   
+</beans> 

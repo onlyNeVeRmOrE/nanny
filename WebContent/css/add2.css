@@ -1,0 +1,12 @@
+.white_content2 {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 40%;
+    height: 80%;
+    border: 16px solid lightblue;
+    background-color: white;
+    z-index: 1002;
+    overflow: auto;
+}
