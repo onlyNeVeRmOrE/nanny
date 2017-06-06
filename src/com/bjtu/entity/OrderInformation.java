@@ -50,6 +50,18 @@ public class OrderInformation {
 	@Column(name="employer_id")
 	private int employer_id;
 	
+	//¶©µ¥×´Ì¬
+	@Column(name="order_status")
+	private String status;
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public int getNanny_id() {
 		return nanny_id;
 	}

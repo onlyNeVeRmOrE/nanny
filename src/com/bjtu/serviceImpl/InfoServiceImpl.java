@@ -60,5 +60,10 @@ public class InfoServiceImpl implements InfoService{
 		List list  = userDao.getAllEmployerLabel(user_id);
 		return userDao.getEmployerLabelJson(list, user_id);
 	}
+
+	@Override
+	public String getEmployerInfo(int nanny_id) {
+		return userInfoDao.getEmployerInfo(nanny_id);
+	}
 	
 }

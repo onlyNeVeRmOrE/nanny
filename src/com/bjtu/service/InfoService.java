@@ -14,6 +14,9 @@ public interface InfoService {
 	// 获取某雇主订单信息JSON
 	public String getOrderInfo(int employer_id);
 	
+	//获取月嫂信息订单信息JSON
+	public String getEmployerInfo(int nanny_id);
+	
 	//获取月嫂技能标签JSON
 	public String getSkillLabelInfo(int user_id);
 	

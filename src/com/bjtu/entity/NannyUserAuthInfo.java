@@ -61,7 +61,7 @@ public class NannyUserAuthInfo {
 	@Lob
 	private String remark;
 
-	@OneToMany(mappedBy = "nannyUserAuthInfo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "nannyUserAuthInfo", cascade = { CascadeType.ALL}, fetch = FetchType.LAZY)
 	private Set<SkillLabel> labels = new HashSet<SkillLabel>();
 
 	public Set<SkillLabel> getLabels() {

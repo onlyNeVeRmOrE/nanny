@@ -98,6 +98,36 @@ public class UserInfoDaoImpl extends HibernateDaoSupport implements UserInfoDao{
 		result.append("]");
 		return result.toString();
 	}
+	
+	@Override
+	public String getEmployerInfo(int nanny_id) {
+		ArrayList<StringBuilder> array = new ArrayList<StringBuilder>();
+		List<OrderInformation> order = userDao.getEmployerOrder(nanny_id);
+		if(order!=null){
+			for(int i=0;i<order.size();i++){
+				OrderInformation temp = order.get(i);
+				int nanny = temp.getNanny_id();
+				UserBaseInfo nannyInfo = userDao.getUserBaseInfo(nanny);
+				NannyUserAuthInfo auth = userDao.getNannyInfoById(nanny);
+				JsonConfig config = new JsonConfig();
+				config.setExcludes(new String[] { "labels" });	
+				StringBuilder sb = new StringBuilder("[");
+				String tempJson = JSONObject.fromObject(temp).toString();
+				String nannyJson = JSONObject.fromObject(nannyInfo).toString();
+				String authJson = JSONObject.fromObject(auth,config).toString();
+				sb.append(tempJson+","+nannyJson+","+authJson+"]");
+				array.add(sb);
+			}
+		}
+		StringBuilder result = new StringBuilder("[");
+		for(int j=0;j<array.size();j++){
+			result.append(array.get(j));
+			if(j+1!=array.size())
+				result.append(",");
+		}
+		result.append("]");
+		return result.toString();
+	}
 
 	@Override
 	public String getIdentityJson(int user_id) {

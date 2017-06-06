@@ -52,6 +52,8 @@ public interface UserDao {
 	
 	public List<OrderInformation> getOrderInfo(int user_id);
 	
+	public List<OrderInformation> getEmployerOrder(int user_id);
+	
 	//添加月嫂技能描述
 	public void addSkillDescribe(int user_id,String skillName,String skillDescribe);
 	

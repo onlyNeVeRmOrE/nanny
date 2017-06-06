@@ -16,6 +16,9 @@ public interface UserInfoDao {
 	//获取某雇主订单信息JSON
 	public String getOrderInfo(int employer_id);
 	
+	//获取月嫂订单信息JSON
+	public String getEmployerInfo(int nanny_id);
+	
 	//获取用户身份信息JSON
 	public String getIdentityJson(int user_id);
 	

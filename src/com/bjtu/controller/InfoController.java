@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bjtu.service.InfoService;
 import com.bjtu.service.NannyUserService;
 
+import net.sf.json.JSONObject;
+
 @Controller
 public class InfoController {
 	
@@ -66,6 +68,45 @@ public class InfoController {
 	public String getNannyOrder(HttpServletRequest request){
 		int user_id = getUserIdBySession(request);
 		return userInfoService.getOrderInfo(user_id);
+	}
+	
+	/**
+	 * 获取月嫂信息，订单信息
+	 * */
+	@RequestMapping(value="/getEmployerOrder",produces="application/json; charset=utf-8")
+	@ResponseBody
+	public String getEmployerOrder(HttpServletRequest request){
+		int user_id = getUserIdBySession(request);
+		return userInfoService.getEmployerInfo(user_id);
+	}
+	
+	/**
+	 * 获取身份信息，订单信息，若是月嫂，还有雇主信息，若是雇主，则查找月嫂信息
+	 * */
+	@RequestMapping(value="/getIdentityAndUserInfo",produces="application/json; charset=utf-8")
+	@ResponseBody
+	public String getIdentityAndUserInfo(HttpServletRequest request){
+		String identityJson = getUserIdentity(request);
+		String parseIdentity = identityJson.substring(1,identityJson.length()-1);
+		JSONObject obj = JSONObject.fromObject(parseIdentity);
+		String identity = obj.getString("identity");
+		String order = "";
+		String result = "";
+		if(identity.equals("employer")){
+			order = getEmployerOrder(request);
+			if(order!=null&&!order.equals(""))
+//				result = order.substring(0,order.length()-1)+","+identityJson+"]";
+				result = "["+identityJson+","+order.substring(1,order.length());
+		}else if(identity.equals("nanny")){
+			order = getNannyOrder(request);
+			if(order!=null&&!order.equals(""))
+//				result = order.substring(0,order.length()-1)+","+identityJson+"]";
+				result = "["+identityJson+","+order.substring(1,order.length());
+		}else{
+			result = order;
+		}
+		System.out.println(result);
+		return result;
 	}
 
 	// 从会话中获取用户ID

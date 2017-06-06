@@ -27,7 +27,7 @@ public class EmployerLabel {
 	@Column(name="DESCRIBETION")
 	private String describetion;
 
-	@ManyToOne(cascade = CascadeType.ALL, optional = false)
+	@ManyToOne(cascade = CascadeType.REMOVE, optional = false)
 	@JoinColumn(name = "user_id", referencedColumnName = "user_id") 
 	private EmployerUserAuthInfo employerUserAuthInfo;
 

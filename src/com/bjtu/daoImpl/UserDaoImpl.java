@@ -320,7 +320,16 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 			return null;
 	}
 
-	
-	
+	@Override
+	public List<OrderInformation> getEmployerOrder(int user_id) {
+		Query query = sessionFactory.openSession().createQuery("from OrderInformation o where o.employer_id = :employer_id");
+		query.setParameter("employer_id", user_id);
+		List<OrderInformation> list = query.list();
+		if (list.size() > 0)
+			return list;
+		else
+			return null;
+	}
 
+	
 }

@@ -107,7 +107,7 @@ public class LoginRegisterController {
 		String appellation = request.getParameter("appellation");		//³Æºô
 		String city = request.getParameter("city");
 		String residence = request.getParameter("residence");			//¾Ó×¡µØ
-		String phoneNumber = request.getParameter("phoneNumber");
+		String phoneNumber = request.getParameter("phone");
 		UserBaseInfo userBaseInfo = new UserBaseInfo();
 		userBaseInfo.setUser_id(id);
 		userBaseInfo.setName(username);

@@ -18,6 +18,8 @@ import com.bjtu.entity.EmployerUserAuthInfo;
 import com.bjtu.entity.NannyUserAuthInfo;
 import com.bjtu.service.NannyUserService;
 import com.bjtu.service.ResourcesService;
+import com.bjtu.service.task.TaskService;
+import com.bjtu.util.OrderStatus;
 import com.bjtu.util.ResponseUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,6 +37,9 @@ public class UserInfoController {
 
 	@Autowired
 	private NannyUserService nannyUserService;
+	
+	@Autowired
+	private TaskService taskService;
 
 	// 获取用户图片
 	@RequestMapping(value = "/image")
@@ -261,12 +266,16 @@ public class UserInfoController {
 		return result;
 	}
 	
+	/**
+	 * 添加订单
+	 * */
 	@RequestMapping(value="/addOrder",produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public String addOrder(HttpServletRequest request){
 		String result = "";
+		String user_id = "";
 		try{
-			String user_id = request.getParameter("user_id");
+			user_id = request.getParameter("user_id");
 			String email = request.getParameter("currentEmail");
 			String city = request.getParameter("city");
 			String lastTime = request.getParameter("finally");
@@ -281,7 +290,39 @@ public class UserInfoController {
 			result = "false";
 			e.printStackTrace();
 		}
+		String identity = nannyUserService.getIdentityById(Integer.valueOf(user_id));
+		updateOrderStatus(Integer.valueOf(user_id),identity,OrderStatus.WAIT);
 		return "{\"success\":\""+result+"\"}";
+	}
+	
+	/**
+	 * 修改状态(WAIT)
+	 * */
+	@RequestMapping(value="/updateOrderStatus")
+	@ResponseBody
+	public void updateOrderStatus(int user_id,String identity,String status){
+		taskService.updateOrderStatus(user_id, identity, status);
+	}
+	
+	/**
+	 * 确认预约
+	 * */
+	@RequestMapping(value="/makeSure")
+	@ResponseBody
+	public void makeSure(HttpServletRequest request){
+		int user_id = getUserIdBySession(request);
+		updateOrderStatus(user_id,"nanny",OrderStatus.TODO);
+	}
+	
+	/**
+	 * 修改状态(DOING)
+	 * */
+	@RequestMapping(value="/updateOrderDoing")
+	@ResponseBody
+	public void updateOrderDoing(HttpServletRequest request){
+		int user_id = getUserIdBySession(request);
+		String identity = nannyUserService.getIdentityById(user_id);
+		updateOrderStatus(user_id,identity,OrderStatus.DOING);
 	}
 	
 	//从会话中获取用户ID
